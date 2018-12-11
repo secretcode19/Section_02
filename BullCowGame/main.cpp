@@ -12,8 +12,6 @@ FBullCowGame BCGame;	// instantiate a new game
 // the entry point for our application
 int main()
 {
-	std::cout << BCGame.GetCurrentTry();
-
 	bool bPlayAgain = false;
 	do
 	{
@@ -29,9 +27,9 @@ int main()
 void PrintIntro()
 {
 	// introduce the game
-	constexpr int WORLD_LENGTH = 9;
+	constexpr int WORD_LENGTH = 9;
 	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
-	std::cout << "Can you guess " << WORLD_LENGTH;
+	std::cout << "Can you guess " << WORD_LENGTH;
 	std::cout << " letter isogram I'm thinking of?";
 	std::cout << std::endl;
 	return;
@@ -43,15 +41,21 @@ void PlayGame()
 	int MaxTries = BCGame.GetMaxTries();
 
 	// loop for the number of turns asking for guesses
-	constexpr int NUMBER_OF_TURNS = 5;
-	for (int count = 1; count <= NUMBER_OF_TURNS; count++)
+	// TODO change from FOR to WHILE loop once we are validating tries
+	for (int count = 1; count <= MaxTries; count++)
 	{
-		std::string Guess = "";
-		Guess = GetGuess();
-		// repeat the guess back to them
+		std::string Guess = GetGuess();	// TODO make loop checking valid
+		
+		// Submit valid guess to the game
+		// Print number of bulls and cosws
+
+
 		std::cout << "Your guess was: " << Guess << std::endl;
 		std::cout << std::endl;
 	}
+
+	// TODO summarise game
+
 }
 
 std::string GetGuess()
