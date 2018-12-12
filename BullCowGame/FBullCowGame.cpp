@@ -27,7 +27,7 @@ bool FBullCowGame::IsGameWon() const
 
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess)
 {
-	if (false)
+	if (!IsIsogram(Guess))
 	{
 		return EGuessStatus::Not_Isogram;
 	}
@@ -95,4 +95,20 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 		bGameIsWon = false;
 	}
 	return BullCowCount;
+}
+
+bool FBullCowGame::IsIsogram(FString Word) const
+{
+	// treat 0 and 1 letter words as isograms
+
+	// loop through all the letters of the word
+		// if the letter is in the map
+			// we do NOT have an isogram
+		// otherwise
+			// add the letter to the map as seen
+	for (int32 i = 0; i < Word.length(); i++)
+	{
+
+	}
+	return true;	// for example in cases where /0 is entered
 }
