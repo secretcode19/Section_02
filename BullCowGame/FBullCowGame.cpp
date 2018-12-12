@@ -41,9 +41,9 @@ void FBullCowGame::Reset()
 	return;
 }
 
-bool FBullCowGame::CheckGuessValidity(FString)
+EWordStatus FBullCowGame::CheckGuessValidity(FString)
 {
-	return false;
+	return EWordStatus::OK;	// TODO make actual error
 }
 
 // receives a VALID guess, incriments turn, and returns count
