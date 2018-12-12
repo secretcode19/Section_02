@@ -25,9 +25,24 @@ bool FBullCowGame::IsGameWon() const
 	return false;
 }
 
-bool FBullCowGame::CheckGuessValidity(FString) const
+EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess)
 {
-	return false;
+	if (false)
+	{
+		return EGuessStatus::Not_Isogram;
+	}
+	else if (false)
+	{
+		return EGuessStatus::Not_Lowercase;
+	}
+	else if (GetHiddenWordLength() != Guess.length())
+	{
+		return EGuessStatus::Wrong_Length;
+	}
+	else
+	{
+		return EGuessStatus::OK;
+	}
 }
 
 void FBullCowGame::Reset()
@@ -39,11 +54,6 @@ void FBullCowGame::Reset()
 	MyHiddenWord = HIDDEN_WORD;
 	MyCurrentTry = 1;
 	return;
-}
-
-EWordStatus FBullCowGame::CheckGuessValidity(FString)
-{
-	return EWordStatus::OK;	// TODO make actual error
 }
 
 // receives a VALID guess, incriments turn, and returns count
