@@ -1,3 +1,5 @@
+#pragma once
+
 #include "FBullCowGame.h"
 
 // default constructor
