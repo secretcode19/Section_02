@@ -1,5 +1,6 @@
 #include "FBullCowGame.h"
 
+// default constructor
 FBullCowGame::FBullCowGame()
 {
 	Reset();
@@ -7,7 +8,15 @@ FBullCowGame::FBullCowGame()
 
 int32 FBullCowGame::GetMaxTries() const
 {
-	return MyMaxTries;
+	TMap<int32, int32> WordLengthToMaxTries
+	{
+		{3, 4},
+		{4, 7},
+		{5, 10},
+		{6, 16},
+		{7, 20},
+	};
+	return WordLengthToMaxTries[MyHiddenWord.length()];
 }
 
 int32 FBullCowGame::GetCurrentTry() const
@@ -47,11 +56,9 @@ EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess)
 
 void FBullCowGame::Reset()
 {
-	constexpr int32 MAX_TRIES = 3;
 	const FString HIDDEN_WORD = "planet";
-
-	MyMaxTries = MAX_TRIES;
 	MyHiddenWord = HIDDEN_WORD;
+
 	MyCurrentTry = 1;
 	bGameIsWon = false;
 	return;
